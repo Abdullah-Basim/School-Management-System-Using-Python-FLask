@@ -1,0 +1,55 @@
+<!-- login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylelogin.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <section class="container">
+            <div class="logo">
+                <h1>SMS</h1>
+            </div>
+
+            <!-- <ul>
+                <li class="item"><a href="home.html">Home</a></li>
+                <li class="item"><a href="">About</a></li>
+                <li class="item"><a href="">Contact</a></li>
+                <li class="item"><a href="">Log In</a></li>
+            </ul> -->
+        </section>
+    </nav>
+    
+    <div>
+    <section class="container1">
+    <div class="bg_ball"></div>
+    <div class="card">
+    <h1>Login</h1>
+    <form method="POST" action="{{ url_for('callLogin') }}">
+        <div style="text-align: center;">
+        <select name="user_type" class="field user-type-dropdown" required>
+            <option value="admin">Admin</option>
+            <option value="parent">Parent</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select></div><br>
+        <input type="text" id="uname" name="username" placeholder="Username" class="field" required><br>
+        <input type="password" id="pass" name="password" placeholder="Password" class="field" required><br><br>
+        <div id="messageBox" class="message-box">
+            {% if UI_message %}
+                <p style="color: red; text-align: center;">{{ UI_message }}</p>
+            {% endif %}
+        </div>
+        
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+</section>
+</div>
+</body>
+</html>
